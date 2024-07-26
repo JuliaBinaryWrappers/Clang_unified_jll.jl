@@ -12,13 +12,13 @@ function __init__()
     JLLWrappers.@init_library_product(
         libclang,
         "bin\\libclang.dll",
-        nothing,
+        RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libclang_cpp,
         "bin\\libclang-cpp.dll",
-        nothing,
+        RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_executable_product(
