@@ -1,6 +1,6 @@
-using Base.BinaryPlatforms
+    using Base.BinaryPlatforms
 
-function augment_llvm!(platform::Platform)
+    function augment_llvm!(platform::Platform)
     haskey(platform, "llvm_version") && return platform
 
     llvm_version = Base.libllvm_version
@@ -20,6 +20,4 @@ function augment_llvm!(platform::Platform)
 end
 
 
-function augment_platform!(platform::Platform)
-    augment_llvm!(platform)
-end
+    augment_platform!(platform::Platform) = augment_llvm!(platform)
