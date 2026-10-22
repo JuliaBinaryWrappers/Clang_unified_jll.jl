@@ -8,11 +8,11 @@ JLLWrappers.@generate_wrapper_header("Clang_unified")
 JLLWrappers.@declare_library_product(libclang, "libclang.so.20.1jl")
 JLLWrappers.@declare_library_product(libclang_cpp, "libclang-cpp.so.20.1jl")
 JLLWrappers.@declare_executable_product(clang)
-JLLWrappers.@declare_executable_product(clang_apply_replacements)
-JLLWrappers.@declare_executable_product(clang_check)
 JLLWrappers.@declare_executable_product(clang_format)
-JLLWrappers.@declare_executable_product(clang_scan_deps)
 JLLWrappers.@declare_executable_product(clang_tidy)
+JLLWrappers.@declare_executable_product(clang_apply_replacements)
+JLLWrappers.@declare_executable_product(clang_scan_deps)
+JLLWrappers.@declare_executable_product(clang_check)
 function __init__()
     JLLWrappers.@generate_init_header(Zlib_jll, Zstd_jll, libLLVM_jll)
     JLLWrappers.@init_library_product(
@@ -33,18 +33,18 @@ function __init__()
     )
 
     JLLWrappers.@init_executable_product(
-        clang_apply_replacements,
-        "tools/clang-apply-replacements",
-    )
-
-    JLLWrappers.@init_executable_product(
-        clang_check,
-        "tools/clang-check",
-    )
-
-    JLLWrappers.@init_executable_product(
         clang_format,
         "tools/clang-format",
+    )
+
+    JLLWrappers.@init_executable_product(
+        clang_tidy,
+        "tools/clang-tidy",
+    )
+
+    JLLWrappers.@init_executable_product(
+        clang_apply_replacements,
+        "tools/clang-apply-replacements",
     )
 
     JLLWrappers.@init_executable_product(
@@ -53,8 +53,8 @@ function __init__()
     )
 
     JLLWrappers.@init_executable_product(
-        clang_tidy,
-        "tools/clang-tidy",
+        clang_check,
+        "tools/clang-check",
     )
 
     JLLWrappers.@generate_init_footer()
